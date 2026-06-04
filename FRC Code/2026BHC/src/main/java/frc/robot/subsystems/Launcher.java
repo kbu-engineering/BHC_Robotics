@@ -13,46 +13,46 @@ import com.ctre.phoenix.motorcontrol.can.*;
 import edu.wpi.first.wpilibj.XboxController;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class Intake extends SubsystemBase {
-  /** Creates a new Intake. */
+public class Launcher extends SubsystemBase {
+  /** Creates a new Launcher. */
 
   XboxController driver = new XboxController(OperatorConstants.kDriverControllerPort);
-  VictorSPX motor = new VictorSPX(OperatorConstants.launcherMotor); 
+  VictorSPX motor = new VictorSPX(OperatorConstants.intakeMotor); 
 
-  public Intake() {
+  public Launcher() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
   
-  public Command intakeBall() {
+  public Command launchBall() {
     return runOnce(
         () -> {
           /* one-time action goes here */
-          setIntakeOn();
+          setLauncherOn();
         });
     }
 
-  public Command intakeStop() {
+  public Command launchStop() {
     return runOnce(
         () -> {
-          setIntakeOff();
+          setLauncherOff();
         });
   }
 
-  public Command reverseIntake() {
+  public Command oopsieLaunch() {
     return runOnce(
       () -> {
-        setIntakeReverse();
+        setLauncherReverse();
       }
     );
   }
-      public void setIntakeOn() {
-    motor.set(ControlMode.PercentOutput, 0.7);
+      public void setLauncherOn() {
+    motor.set(ControlMode.PercentOutput, 1);
   }
   
-  public void setIntakeReverse() {
+  public void setLauncherReverse() {
     motor.set(ControlMode.PercentOutput, -0.7);
   }
-  public void setIntakeOff() {
+  public void setLauncherOff() {
     motor.set(ControlMode.PercentOutput, 0);
   }
 
