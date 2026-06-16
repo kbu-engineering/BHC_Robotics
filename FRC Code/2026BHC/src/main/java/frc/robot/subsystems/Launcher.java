@@ -17,7 +17,7 @@ public class Launcher extends SubsystemBase {
   /** Creates a new Launcher. */
 
   XboxController driver = new XboxController(OperatorConstants.kDriverControllerPort);
-  VictorSPX motor = new VictorSPX(OperatorConstants.intakeMotor); 
+  VictorSPX motor = new VictorSPX(OperatorConstants.launcherMotor); 
 
   public Launcher() {
     // Use addRequirements() here to declare subsystem dependencies.
