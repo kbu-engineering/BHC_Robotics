@@ -17,7 +17,7 @@ public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
 
   XboxController driver = new XboxController(OperatorConstants.kDriverControllerPort);
-  VictorSPX motor = new VictorSPX(OperatorConstants.launcherMotor); 
+  VictorSPX motor = new VictorSPX(OperatorConstants.intakeMotor); 
 
   public Intake() {
     // Use addRequirements() here to declare subsystem dependencies.
