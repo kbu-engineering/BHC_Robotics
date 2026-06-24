@@ -22,5 +22,6 @@ public final class Constants {
     public static final int leftMotorFollow = 3;
     public static final int rightMotorLead = 1;
     public static final int rightMotorFollow = 2;
+    public static final int launcherMotor = 6;
   }
 }
