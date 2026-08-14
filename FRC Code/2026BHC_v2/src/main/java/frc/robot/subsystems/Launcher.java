@@ -38,7 +38,7 @@ public class Launcher extends SubsystemBase {
         });
   }
 
-  public Command oopsieLaunch() {
+  public Command reverseLaunch() {
     return runOnce(
       () -> {
         setLauncherReverse();
