@@ -46,7 +46,7 @@ public class Launcher extends SubsystemBase {
     );
   }
       public void setLauncherOn() {
-    motor.set(ControlMode.PercentOutput, 0.7);
+    motor.set(ControlMode.PercentOutput, 0.8);
   }
   
   public void setLauncherReverse() {
