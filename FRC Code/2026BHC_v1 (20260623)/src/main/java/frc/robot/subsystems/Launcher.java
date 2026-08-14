@@ -38,13 +38,13 @@ public class Launcher extends SubsystemBase {
         });
   }
 
-  public Command oopsieLaunch() {
-    return runOnce(
-      () -> {
-        setLauncherReverse();
-      }
-    );
-  }
+  // public Command oopsieLaunch() {
+  //   return runOnce(
+  //     () -> {
+  //       setLauncherReverse();
+  //     }
+  //   );
+  // }
       public void setLauncherOn() {
     motor.set(ControlMode.PercentOutput, 0.5);
   }
