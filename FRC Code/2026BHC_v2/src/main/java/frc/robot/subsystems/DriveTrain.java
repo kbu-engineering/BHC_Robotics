@@ -33,7 +33,7 @@ public class DriveTrain extends SubsystemBase {
 
   public void tankDrive(double leftSpeed, double rightSpeed) {
     //Operate in tank drive with a separate joystick controlling each side
-    m_robotDrive.tankDrive(leftSpeed, -rightSpeed);
+    m_robotDrive.tankDrive(leftSpeed*0.85, -rightSpeed);
   }
 
 }

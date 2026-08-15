@@ -12,6 +12,7 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Launcher;
 // import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 // import edu.wpi.first.wpilibj2.command.StartEndCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -58,8 +59,8 @@ public class RobotContainer {
     // cancelling on release.
     m_driverController.rightTrigger().whileTrue(m_Intake.intakeBall()).onFalse(m_Intake.intakeStop());
     m_driverController.rightBumper().whileTrue(m_Intake.reverseIntake()).onFalse(m_Intake.intakeStop());
-    m_driverController.leftTrigger().whileTrue(m_Launcher.launchBall()).onFalse(m_Launcher.launchStop());
-    m_driverController.leftBumper().whileTrue(m_Launcher.reverseLaunch()).onFalse(m_Launcher.launchStop());
+    m_driverController.leftBumper().whileTrue(m_Launcher.launchBall()).onFalse(m_Launcher.launchStop());
+    m_driverController.leftTrigger().whileTrue(m_Launcher.reverseLaunch()).onFalse(m_Launcher.launchStop());
   }
 
   /**
@@ -69,7 +70,13 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-        return m_Launcher.launchBall();
+        return m_Launcher.reverseLaunch()
+        .andThen(new WaitCommand(3.0))
+        .andThen(m_Intake.intakeBall())
+        .andThen(new WaitCommand(15.0))
+        .andThen(m_Intake.intakeStop())
+        .andThen(m_Launcher.launchStop()); 
+        
     //return Autos.exampleAuto(m_exampleSubsystem);
   }
 }
