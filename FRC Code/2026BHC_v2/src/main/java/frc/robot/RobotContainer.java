@@ -5,6 +5,7 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.subsystems.DriveTrain;
 //import frc.robot.commands.Autos;
 // import frc.robot.commands.ExampleCommand;
 //import frc.robot.subsystems.ExampleSubsystem;
@@ -28,6 +29,7 @@ public class RobotContainer {
  // private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final Intake m_Intake = new Intake();
   private final Launcher m_Launcher = new Launcher(); 
+  private final DriveTrain m_DriveTrain = new DriveTrain();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
@@ -61,6 +63,7 @@ public class RobotContainer {
     m_driverController.rightBumper().whileTrue(m_Intake.reverseIntake()).onFalse(m_Intake.intakeStop());
     m_driverController.leftBumper().whileTrue(m_Launcher.launchBall()).onFalse(m_Launcher.launchStop());
     m_driverController.leftTrigger().whileTrue(m_Launcher.reverseLaunch()).onFalse(m_Launcher.launchStop());
+    m_driverController.a().onTrue(m_DriveTrain.spinCommand());
   }
 
   /**

@@ -46,7 +46,7 @@ public class Intake extends SubsystemBase {
     );
   }
       public void setIntakeOn() {
-    motor.set(ControlMode.PercentOutput, 0.4);
+    motor.set(ControlMode.PercentOutput, 0.5);
   }
   
   public void setIntakeReverse() {

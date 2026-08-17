@@ -5,6 +5,9 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.StartEndCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.util.sendable.SendableRegistry;
 import edu.wpi.first.wpilibj.XboxController;
@@ -35,5 +38,12 @@ public class DriveTrain extends SubsystemBase {
     //Operate in tank drive with a separate joystick controlling each side
     m_robotDrive.tankDrive(leftSpeed*0.85, -rightSpeed);
   }
+public Command spinCommand() {
+  return new StartEndCommand(
+    () -> tankDrive(0.6, -0.6),
+    () -> tankDrive(0, 0),
+    this
+    ).withTimeout(1.2);
+}
 
 }
